@@ -30,12 +30,13 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('token')
     )
-    op.create_table('contact',
+    op.create_table('whiskeys',
     sa.Column('id', sa.String(), nullable=False),
-    sa.Column('name', sa.String(length=150), nullable=False),
-    sa.Column('email', sa.String(length=200), nullable=True),
-    sa.Column('phone_number', sa.String(length=20), nullable=True),
-    sa.Column('address', sa.String(length=200), nullable=True),
+    sa.Column('brand', sa.String(length=150), nullable=False),
+    sa.Column('country', sa.String(length=200), nullable=True),
+    sa.Column('year', sa.String(length=20), nullable=True),
+    sa.Column('flavor', sa.String(length=200), nullable=True),
+    sa.Column('price', sa.String(length=100), nullable=True),
     sa.Column('user_token', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['user_token'], ['user.token'], ),
     sa.PrimaryKeyConstraint('id')
